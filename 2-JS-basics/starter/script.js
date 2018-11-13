@@ -175,28 +175,106 @@
 
 // falsy values: undefined, null, 0, '', NaN
 
-var height;
-height = '';
-
-if (height || height === 0) {
-    console.log('Variable is defined');
-} else {
-    console.log('Variable has NOT been defined');
-}
+// var height;
+// height = '';
+// 
+// if (height || height === 0) {
+//     console.log('Variable is defined');
+// } else {
+//     console.log('Variable has NOT been defined');
+// }
 
 //
 // Equality Operators
 //
 
-height = 23;
+// height = 23;
+// 
+// if (height == 23) {
+//     console.log('The == operator does type coercion');
+// }
 
-if (height == 23) {
-    console.log('The == operator does type coercion');
+//
+// Function Statements and Expressions
+//
+
+// Function declaration
+// function whatDoYouDo(job, firstName) {}
+
+// Function expression
+// var whatDoYouDo = function(job, firstName) {
+//     switch(job) {
+//         case 'teacher':
+//             return firstName + ' teaches kids how to code';
+//         case 'driver':
+//             return firstName + ' drives a cab in Lisbon.'
+//         case 'designer':
+//             return firstName + ' designs beautiful websites';
+//         default:
+//             return firstName + ' does something else';
+//     }
+// }
+// 
+// console.log(whatDoYouDo('teacher', 'John'));
+// console.log(whatDoYouDo('designer', 'Jane'));
+// console.log(whatDoYouDo('retired', 'Mark'));
+// 
+
+//
+// Arrays
+//
+
+// Initialize new array
+// var names = ['John', 'Mark', 'Jane'];
+// var years = new Array(1990, 1969, 1948);
+// 
+// console.log(names[2]);
+// console.log(names.length);
+
+// Mutate array data
+// names[1] = 'Ben';
+// names[names.length] = 'Mary';
+// console.log(names);
+
+// Different data types
+// var john = ['John', 'Smith', 1990, 'designer', false];
+// 
+// john.push('blue');
+// john.unshift('Mr.');
+// console.log(john);
+// 
+// john.pop();
+// john.pop();
+// john.shift();
+// console.log(john);
+// 
+// console.log(john.indexOf(23));
+// 
+// var isDesigner = john.indexOf('designer') === -1 ? 'John is NOT a designer' : 'John IS a designer';
+// console.log(isDesigner);
+
+
+var john = {
+    fullName: 'John Smith',
+    bills: [124, 48, 268, 180, 42],
+    tips: [],
+    totalBills: [],
+    calcTips: function() {
+        for (var i = 0; i < this.bills.length; i++) {
+            var tip;
+            var bill = this.bills[i];
+            if (bill < 50) {
+                tip = bill * 0.2; 
+            } else if (bill < 200) {
+                tip = bill * 0.15;
+            } else {
+                tip = bill * 0.1;
+            }
+            this.tips.push(tip);
+            this.totalBills.push(this.bills[i] + this.tips[i]);
+        }
+    }
 }
 
-
-
-
-
-
+console.log(john.calcTips());
 
